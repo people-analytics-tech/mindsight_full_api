@@ -1,4 +1,4 @@
-# Mindsight People Control API
+# Mindsight Full API
 [![PyPI Latest Release](https://img.shields.io/pypi/v/mindsight-full-api.svg)](https://pypi.org/project/mindsight-full-api/)
 
 Use mindsight full functionalities in your python application.
