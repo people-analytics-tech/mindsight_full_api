@@ -17,7 +17,7 @@ repository = "https://github.com/people-analytics-tech/mindsight-full-api"
 python = "^3.9"
 python-decouple = "^3.8"
 requests = "^2.31.0"
-pytest = "^8.3.3"
+pytest = "^7.4.2"
 
 [build-system]
 requires = ["poetry-core"]
