@@ -2,15 +2,16 @@
 
 from mindsight_full_api.scripts import (
     Absence,
+    Assessments,
     Bonus,
     CostCenters,
     ExtraHours,
-    People,
     RaiseType,
     Salary,
     Trainings,
-    VaraibleSalary,
     User,
+    VaraibleSalary,
+    People,
 )
 
 __doc__ = """
