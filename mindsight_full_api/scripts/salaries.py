@@ -61,7 +61,7 @@ class Salary(ApiEndpoint):
             "page_size": self.page_size,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 

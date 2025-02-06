@@ -17,7 +17,6 @@ from mindsight_full_api.utils.aux_functions import generate_url
 
 class Absence(ApiEndpoint):
     """This class abstract the absence endpoint methods
-    Reference: https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos
     """
 
     def __init__(self) -> None:
@@ -62,7 +61,7 @@ class Absence(ApiEndpoint):
             "page_size": self.page_size,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 
@@ -87,9 +86,6 @@ class Absence(ApiEndpoint):
         observations: str = None,
     ):
         """Create new absence
-        Reference:
-            https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos/operation/createAbsence
-
         Args:
             start_date (date, Mandatory): Area start date
             end_date (date, Optional): Parent area id
@@ -121,9 +117,6 @@ class Absence(ApiEndpoint):
         modified__lt: datetime = None,
     ) -> dict:
         """Get retrieve absence
-        Reference:
-            https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos/operation/retrieveAbsence
-
         Args:
             _id (int, Mandatory): Id of area to retrieve
             created__gt (datetime, Optional): Datetime to apply filter ">=" on created dates.
@@ -172,9 +165,6 @@ class Absence(ApiEndpoint):
         modified__lt: datetime = None,
     ) -> dict:
         """Edit area and last area record
-        Reference:
-            https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos/operation/partialUpdateAbsence
-
         Args:
             _id (int, Mandatory): Area id
             start_date (date, Mandatory): Area start date
@@ -227,8 +217,6 @@ class Absence(ApiEndpoint):
         modified__lt: datetime = None,
     ) -> dict:
         """Edit absence
-        Reference:
-            https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos/operation/updateAbsence
 
         Args:
             _id (int, Mandatory): Area id
@@ -275,9 +263,6 @@ class Absence(ApiEndpoint):
         modified__lt: datetime = None,
     ) -> dict:
         """Delete absence
-        Reference:
-            https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos/operation/destroyAbsence
-
         Args:
             _id (int, Mandatory): Id of area to retrieve
             created__gt (datetime, Optional): Datetime to apply filter ">=" on created dates.

@@ -6,12 +6,20 @@ from mindsight_full_api.scripts import (
     Bonus,
     CostCenters,
     ExtraHours,
+    People,
+    PerformanceEvaluations,
+    PerformanceEvaluationRounds,
+    PerformanceIndicators,
+    PerformanceSections,
+    PerformanceLabels,
+    PerformanceMissions,
     RaiseType,
     Salary,
+    Shares,
+    SharesValue,
     Trainings,
     User,
     VaraibleSalary,
-    People,
 )
 
 __doc__ = """

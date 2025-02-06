@@ -1,7 +1,8 @@
 from mindsight_full_api import Bonus
 from datetime import datetime
 import unittest
-import pytest
+from mindsight_full_api.settings import API_ENDPOINT_BONUSES
+from mindsight_full_api.utils.aux_functions import generate_url
 
 new_bonus_id = None
 
@@ -29,7 +30,7 @@ class TestMindFullBonusRequests(unittest.TestCase):
         new_bonus_data = new_bonus_response.json()
         new_bonus_id = int(new_bonus_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/bonuses/', 
+                            generate_url(API_ENDPOINT_BONUSES, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -49,7 +50,7 @@ class TestMindFullBonusRequests(unittest.TestCase):
         patch_bonus_data = patch_bonus_response.json()
         new_bonus_id = int(patch_bonus_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/bonuses/', 
+                            generate_url(API_ENDPOINT_BONUSES, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -63,7 +64,7 @@ class TestMindFullBonusRequests(unittest.TestCase):
         put_bonus_data = put_bonus_response.json()
         new_bonus_id = int(put_bonus_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/bonuses/', 
+                            generate_url(API_ENDPOINT_BONUSES, ""), 
                             ""
                         )\
                         .replace("/", ""))

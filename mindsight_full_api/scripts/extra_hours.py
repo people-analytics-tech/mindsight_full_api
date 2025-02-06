@@ -60,7 +60,7 @@ class ExtraHours(ApiEndpoint):
             "page_size": self.page_size,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 
@@ -99,6 +99,7 @@ class ExtraHours(ApiEndpoint):
             "modified__lt": modified__lt.strftime(DATETIME_FORMAT)
             if modified__lt
             else None,
+            "page_size":self.page_size
         }
         return self._base_requests.get(
             path=path,

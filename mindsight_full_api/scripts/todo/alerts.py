@@ -16,7 +16,6 @@ from mindsight_full_api.utils.aux_functions import generate_url
 
 class Absence(ApiEndpoint):
     """This class abstract the absence endpoint methods
-    Reference: https://full.mindsight.com.br/stone/api/v1/docs/#tag/Alertas
     """
 
     def __init__(self) -> None:
@@ -58,7 +57,7 @@ class Absence(ApiEndpoint):
             "page_size": self.page_size,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 

@@ -1,6 +1,8 @@
 from mindsight_full_api import Absence
 from datetime import datetime
 import unittest
+from mindsight_full_api.utils.aux_functions import generate_url
+from mindsight_full_api.settings import API_ENDPOINT_ABSENCES
 
 new_absence_id = None
 class TestMindFullAbsenceRequests(unittest.TestCase):
@@ -36,7 +38,7 @@ class TestMindFullAbsenceRequests(unittest.TestCase):
         get_absence_data = get_absence_response.json()
         get_data_id = int(get_absence_data["api_url"]\
                                 .replace(
-                                    'https://full.mindsight.com.br/stone/api/v1/absences/', 
+                                    generate_url(API_ENDPOINT_ABSENCES, ""), 
                                     ""
                                 )\
                                 .replace("/", ""))
@@ -49,7 +51,7 @@ class TestMindFullAbsenceRequests(unittest.TestCase):
         patch_absence_data = patch_absence_response.json()
         new_absence_id = int(patch_absence_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/absences/', 
+                            generate_url(API_ENDPOINT_ABSENCES, ""), 
                             ""
                         )\
                         .replace("/", ""))

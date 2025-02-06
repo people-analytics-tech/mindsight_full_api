@@ -1,7 +1,9 @@
 from mindsight_full_api import ExtraHours
 from datetime import datetime
 import unittest
-import pytest
+
+from mindsight_full_api.utils.aux_functions import generate_url
+from mindsight_full_api.settings import API_ENDPOINT_EXTRA_HOURS
 
 new_extra_hours_id = None
 
@@ -35,7 +37,7 @@ class TestMindFullExtraHoursRequests(unittest.TestCase):
         new_extra_hours_data = new_extra_hours_response.json()
         new_extra_hours_id = int(new_extra_hours_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/extra_hours/', 
+                            generate_url(API_ENDPOINT_EXTRA_HOURS, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -54,7 +56,7 @@ class TestMindFullExtraHoursRequests(unittest.TestCase):
         patch_extra_hours_data = patch_extra_hours_response.json()
         new_extra_hours_id = int(patch_extra_hours_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/extra_hours/', 
+                            generate_url(API_ENDPOINT_EXTRA_HOURS, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -68,7 +70,7 @@ class TestMindFullExtraHoursRequests(unittest.TestCase):
         put_extra_hours_data = put_extra_hours_response.json()
         new_extra_hours_id = int(put_extra_hours_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/extra_hours/', 
+                            generate_url(API_ENDPOINT_EXTRA_HOURS, ""), 
                             ""
                         )\
                         .replace("/", ""))

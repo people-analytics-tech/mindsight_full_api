@@ -16,7 +16,6 @@ from mindsight_full_api.utils.aux_functions import generate_url
 
 class User(ApiEndpoint):
     """This class abstract the user endpoint methods
-    Reference: https://full.mindsight.com.br/stone/api/v1/docs/#tag/user
     """
 
     def __init__(self) -> None:
@@ -24,7 +23,6 @@ class User(ApiEndpoint):
 
     def get_list_users(
         self,
-        page: int = None,
         search: str = None,
         remuneration_access: str = None,
         my_profile_remuneration_access: str = None,
@@ -47,7 +45,6 @@ class User(ApiEndpoint):
         """
         path = ""
         parameters = {
-            "page": page,
             "page_size": self.page_size,
             "search": search,
             "remuneration_access": remuneration_access,
@@ -57,7 +54,7 @@ class User(ApiEndpoint):
             "ordering": ordering,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 
@@ -185,10 +182,16 @@ class User(ApiEndpoint):
             "user_permissions": user_permissions,
             "is_superuser": is_superuser,
             "notifications_config": notifications_config,
-            "last_login": last_login,
-            "date_joined": date_joined,
+            "last_login": last_login.strftime(DATETIME_FORMAT)
+            if last_login
+            else last_login,
+            "date_joined": date_joined.strftime(DATETIME_FORMAT)
+            if date_joined
+            else date_joined,
             "is_active": is_active,
-            "last_acess": last_acess,
+            "last_acess": last_acess.strftime(DATETIME_FORMAT)
+            if last_acess
+            else last_acess,
         }
         parameters = {
             "search": search,
@@ -251,10 +254,16 @@ class User(ApiEndpoint):
             "groups": groups,
             "user_permissions": user_permissions,
             "is_superuser": is_superuser,
-            "last_login": last_login,
-            "date_joined": date_joined,
+            "last_login": last_login.strftime(DATETIME_FORMAT)
+            if last_login
+            else last_login,
+            "date_joined": date_joined.strftime(DATETIME_FORMAT)
+            if date_joined
+            else date_joined,
             "is_active": is_active,
-            "last_acess": last_acess,
+            "last_acess": last_acess.strftime(DATETIME_FORMAT)
+            if last_acess
+            else last_acess,
         }
         parameters = {
             "search": search,

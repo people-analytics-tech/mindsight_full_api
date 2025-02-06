@@ -1,13 +1,12 @@
 from mindsight_full_api import Salary
 from datetime import datetime
 import unittest
-
+from mindsight_full_api.settings import API_ENDPOINT_SHARES
 from mindsight_full_api.utils.aux_functions import generate_url
-from mindsight_full_api.settings import API_ENDPOINT_SALARIES
 
 new_salary_id = None
 
-class TestMindFullSalaryRequests(unittest.TestCase):
+class TestMindFullShares(unittest.TestCase):
     data = {
         "date": datetime.strptime("2023-03-01", "%Y-%m-%d").date(),
         "salary": 2000,
@@ -31,7 +30,7 @@ class TestMindFullSalaryRequests(unittest.TestCase):
         new_salary_data = new_salary_response.json()
         new_salary_id = int(new_salary_data["api_url"]\
                         .replace(
-                            generate_url(API_ENDPOINT_SALARIES, ""), 
+                            generate_url(API_ENDPOINT_SHARES, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -50,7 +49,7 @@ class TestMindFullSalaryRequests(unittest.TestCase):
         patch_salary_data = patch_salary_response.json()
         new_salary_id = int(patch_salary_data["api_url"]\
                         .replace(
-                            generate_url(API_ENDPOINT_SALARIES, ""), 
+                            generate_url(API_ENDPOINT_SHARES, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -66,7 +65,7 @@ class TestMindFullSalaryRequests(unittest.TestCase):
     #     put_salary_data = put_salary_response.json()
     #     new_salary_id = int(put_salary_data["api_url"]\
     #                     .replace(
-    #                         generate_url(API_ENDPOINT_SALARIES, ""), 
+    #                         generate_url(API_ENDPOINT_SHARES, ""), 
     #                         ""
     #                     )\
     #                     .replace("/", ""))

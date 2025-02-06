@@ -1,6 +1,8 @@
 from mindsight_full_api import VaraibleSalary
 from datetime import datetime
 import unittest
+from mindsight_full_api.settings import API_ENDPOINT_VARIABLE_SALARIES
+from mindsight_full_api.utils.aux_functions import generate_url
 
 new_variable_salary_id = None
 class TestMindFullVariableSalaryRequests(unittest.TestCase):
@@ -33,7 +35,7 @@ class TestMindFullVariableSalaryRequests(unittest.TestCase):
         new_variable_salary_data = new_variable_salary_response.json()
         new_variable_salary_id = int(new_variable_salary_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/variable_salaries/', 
+                            generate_url(API_ENDPOINT_VARIABLE_SALARIES, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -45,7 +47,7 @@ class TestMindFullVariableSalaryRequests(unittest.TestCase):
         get_variable_salary_data = get_variable_salary_response.json()
         get_data_id = int(get_variable_salary_data["api_url"]\
                                 .replace(
-                                    'https://full.mindsight.com.br/stone/api/v1/variable_salaries/', 
+                                    generate_url(API_ENDPOINT_VARIABLE_SALARIES, ""), 
                                     ""
                                 )\
                                 .replace("/", ""))
@@ -59,7 +61,7 @@ class TestMindFullVariableSalaryRequests(unittest.TestCase):
         patch_variable_salary_data = patch_variable_salary_response.json()
         new_variable_salary_id = int(patch_variable_salary_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/variable_salaries/', 
+                            generate_url(API_ENDPOINT_VARIABLE_SALARIES, ""), 
                             ""
                         )\
                         .replace("/", ""))

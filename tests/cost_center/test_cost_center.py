@@ -1,8 +1,10 @@
 from mindsight_full_api import CostCenters
 from datetime import datetime
 import unittest
+from mindsight_full_api.utils.aux_functions import generate_url
+from mindsight_full_api.settings import API_ENDPOINT_COST_CENTERS
 
-new_cost_center_id = 2272932
+new_cost_center_id = None
 
 class TestMindFullCostCenterRequests(unittest.TestCase):
     data = {
@@ -34,7 +36,7 @@ class TestMindFullCostCenterRequests(unittest.TestCase):
         new_cost_center_data = new_cost_center_response.json()
         new_cost_center_id = int(new_cost_center_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/cost_centers/', 
+                            generate_url(API_ENDPOINT_COST_CENTERS, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -53,7 +55,7 @@ class TestMindFullCostCenterRequests(unittest.TestCase):
         patch_cost_center_data = patch_cost_center_response.json()
         new_cost_center_id = int(patch_cost_center_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/cost_centers/', 
+                            generate_url(API_ENDPOINT_COST_CENTERS, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -67,7 +69,7 @@ class TestMindFullCostCenterRequests(unittest.TestCase):
         put_cost_center_data = put_cost_center_response.json()
         new_cost_center_id = int(put_cost_center_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/cost_centers/', 
+                            generate_url(API_ENDPOINT_COST_CENTERS, ""), 
                             ""
                         )\
                         .replace("/", ""))

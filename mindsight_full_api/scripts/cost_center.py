@@ -16,7 +16,6 @@ from mindsight_full_api.utils.aux_functions import generate_url
 class CostCenters(ApiEndpoint):
     """
     This class abstract the cost center endpoint methods
-    Reference: https://full.mindsight.com.br/stone/api/v1/docs/#tag/Centro-de-custos
     """
 
     def __init__(self) -> None:
@@ -40,7 +39,7 @@ class CostCenters(ApiEndpoint):
             "page_size": self.page_size,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 

@@ -1,6 +1,8 @@
 from mindsight_full_api import Trainings
 from datetime import datetime
 import unittest
+from mindsight_full_api.utils.aux_functions import generate_url
+from mindsight_full_api.settings import API_ENDPOINT_TRAININGS
 
 new_training_id = None
 class TestMindFullTrainingRequests(unittest.TestCase):
@@ -43,7 +45,7 @@ class TestMindFullTrainingRequests(unittest.TestCase):
         new_training_data = new_training_response.json()
         new_training_id = int(new_training_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/trainings/', 
+                            generate_url(API_ENDPOINT_TRAININGS, ""), 
                             ""
                         )\
                         .replace("/", ""))
@@ -55,7 +57,7 @@ class TestMindFullTrainingRequests(unittest.TestCase):
         get_training_data = get_training_response.json()
         get_data_id = int(get_training_data["api_url"]\
                                 .replace(
-                                    'https://full.mindsight.com.br/stone/api/v1/trainings/', 
+                                    generate_url(API_ENDPOINT_TRAININGS, ""), 
                                     ""
                                 )\
                                 .replace("/", ""))
@@ -68,7 +70,7 @@ class TestMindFullTrainingRequests(unittest.TestCase):
         patch_training_data = patch_training_response.json()
         new_training_id = int(patch_training_data["api_url"]\
                         .replace(
-                            'https://full.mindsight.com.br/stone/api/v1/trainings/', 
+                            generate_url(API_ENDPOINT_TRAININGS, ""), 
                             ""
                         )\
                         .replace("/", ""))

@@ -14,7 +14,6 @@ from mindsight_full_api.settings import (
 
 class RaiseType(ApiEndpoint):
     """This class abstract the absence endpoint methods
-    Reference: https://full.mindsight.com.br/stone/api/v1/docs/#tag/Afastamentos
     """
 
     def __init__(self) -> None:
@@ -59,7 +58,7 @@ class RaiseType(ApiEndpoint):
             "page_size": self.page_size,
         }
         return ApiPaginationResponse(
-            **self._base_requests.get(path=path, parameters=parameters),
+            **self._base_requests.get(path=path, parameters=parameters).json(),
             headers=self._base_requests.headers,
         )
 

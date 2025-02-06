@@ -114,8 +114,7 @@ class BaseRequests:
         self.__check_response(response)
         if response.status_code == 204:
             return response
-        response_json = response.json()
-        return response_json
+        return response
 
     def get(
         self,
