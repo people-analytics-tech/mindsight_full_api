@@ -21,14 +21,14 @@ class PerformanceMissions(ApiEndpoint):
     def __init__(self) -> None:
         super().__init__(API_ENDPOINT_PERFORMANCE_MISSIONS)
 
-    def get_list_performance_indicators(
+    def get_list_performance_missions(
         self,
         created__gt: datetime = None,
         created__lt: datetime = None,
         modified__gt: datetime = None,
         modified__lt: datetime = None,
     ) -> ApiPaginationResponse:
-        """Get performance indicators data"""
+        """Get performance missions data"""
 
         path = ""
         parameters = {
@@ -51,7 +51,7 @@ class PerformanceMissions(ApiEndpoint):
             headers=self._base_requests.headers,
         )
 
-    def post_create_performance_indicators(
+    def post_create_performance_missions(
         self,
         date: date,
         description: str,
@@ -102,7 +102,7 @@ class PerformanceMissions(ApiEndpoint):
         }
         return self._base_requests.post(path=path, json=data)
 
-    def get_performance_indicators(
+    def get_performance_missions(
         self,
         _id: int,
         created__gt: datetime = None,
@@ -133,7 +133,7 @@ class PerformanceMissions(ApiEndpoint):
             path=path, parameters=parameters
         )
 
-    def patch_edit_performance_indicators(
+    def patch_edit_performance_missions(
         self,
         _id: int,
         date: date,
@@ -206,7 +206,7 @@ class PerformanceMissions(ApiEndpoint):
         }
         return self._base_requests.patch(path=path, parameters=parameters, json=data)
 
-    def put_edit_performance_indicators(
+    def put_edit_performance_missions(
         self,
         _id: int,
         date: date,
@@ -279,7 +279,7 @@ class PerformanceMissions(ApiEndpoint):
         }
         return self._base_requests.put(path=path, parameters=parameters, json=data)
 
-    def delete_performance_indicators(
+    def delete_performance_missions(
         self,
         _id: int,
         created__gt: datetime = None,

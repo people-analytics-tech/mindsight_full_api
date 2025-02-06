@@ -7,7 +7,7 @@ from mindsight_full_api.helpers.models import (
 )
 from mindsight_full_api.settings import (
     API_ENDPOINT_PEOPLE,
-    API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS,
+    API_ENDPOINT_performance_evaluations,
     API_ENDPOINT_PERFORMANCE_EVALUATIONS,
     API_ENDPOINT_PERFORMANCE_LABELS,
     API_ENDPOINT_PERFORMANCE_SECTIONS,
@@ -23,7 +23,7 @@ class PerformanceEvaluations(ApiEndpoint):
     def __init__(self) -> None:
         super().__init__(API_ENDPOINT_PERFORMANCE_EVALUATIONS)
 
-    def get_list_performance_evaluation_rounds(
+    def get_list_performance_evaluations(
         self,
     ) -> ApiPaginationResponse:
         """Get performance evaluation rounds data"""
@@ -37,7 +37,7 @@ class PerformanceEvaluations(ApiEndpoint):
             headers=self._base_requests.headers,
         )
 
-    def post_create_performance_evaluation_rounds(
+    def post_create_performance_evaluations(
         self,
         score: float,
         person_id: id,
@@ -57,12 +57,12 @@ class PerformanceEvaluations(ApiEndpoint):
             ),
             "label": generate_url(API_ENDPOINT_PERFORMANCE_LABELS, f"/{label_id}"),
             "round": generate_url(
-                API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS, f"/{round_id}"
+                API_ENDPOINT_performance_evaluations, f"/{round_id}"
             ),
         }
         return self._base_requests.post(path=path, json=data)
 
-    def get_performance_evaluation_rounds(
+    def get_performance_evaluations(
         self,
         _id: int,
     ) -> dict:
@@ -75,7 +75,7 @@ class PerformanceEvaluations(ApiEndpoint):
             path=path,
         )
 
-    def patch_edit_performance_evaluation_rounds(
+    def patch_edit_performance_evaluations(
         self,
         _id: int,
         score: float,
@@ -99,12 +99,12 @@ class PerformanceEvaluations(ApiEndpoint):
             ),
             "label": generate_url(API_ENDPOINT_PERFORMANCE_LABELS, f"/{label_id}"),
             "round": generate_url(
-                API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS, f"/{round_id}"
+                API_ENDPOINT_performance_evaluations, f"/{round_id}"
             ),
         }
         return self._base_requests.patch(path=path, json=data)
 
-    def put_edit_performance_evaluation_rounds(
+    def put_edit_performance_evaluations(
         self,
         _id: int,
         score: float,
@@ -128,12 +128,12 @@ class PerformanceEvaluations(ApiEndpoint):
             ),
             "label": generate_url(API_ENDPOINT_PERFORMANCE_LABELS, f"/{label_id}"),
             "round": generate_url(
-                API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS, f"/{round_id}"
+                API_ENDPOINT_performance_evaluations, f"/{round_id}"
             ),
         }
         return self._base_requests.put(path=path, json=data)
 
-    def delete_performance_evaluation_rounds(
+    def delete_performance_evaluations(
         self,
         _id: int,
     ) -> dict:
