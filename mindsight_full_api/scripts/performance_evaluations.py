@@ -7,7 +7,7 @@ from mindsight_full_api.helpers.models import (
 )
 from mindsight_full_api.settings import (
     API_ENDPOINT_PEOPLE,
-    API_ENDPOINT_performance_evaluations,
+    API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS,
     API_ENDPOINT_PERFORMANCE_EVALUATIONS,
     API_ENDPOINT_PERFORMANCE_LABELS,
     API_ENDPOINT_PERFORMANCE_SECTIONS,
@@ -57,7 +57,7 @@ class PerformanceEvaluations(ApiEndpoint):
             ),
             "label": generate_url(API_ENDPOINT_PERFORMANCE_LABELS, f"/{label_id}"),
             "round": generate_url(
-                API_ENDPOINT_performance_evaluations, f"/{round_id}"
+                API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS, f"/{round_id}"
             ),
         }
         return self._base_requests.post(path=path, json=data)
@@ -99,7 +99,7 @@ class PerformanceEvaluations(ApiEndpoint):
             ),
             "label": generate_url(API_ENDPOINT_PERFORMANCE_LABELS, f"/{label_id}"),
             "round": generate_url(
-                API_ENDPOINT_performance_evaluations, f"/{round_id}"
+                API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS, f"/{round_id}"
             ),
         }
         return self._base_requests.patch(path=path, json=data)
@@ -128,7 +128,7 @@ class PerformanceEvaluations(ApiEndpoint):
             ),
             "label": generate_url(API_ENDPOINT_PERFORMANCE_LABELS, f"/{label_id}"),
             "round": generate_url(
-                API_ENDPOINT_performance_evaluations, f"/{round_id}"
+                API_ENDPOINT_PERFORMANCE_EVALUATION_ROUNDS, f"/{round_id}"
             ),
         }
         return self._base_requests.put(path=path, json=data)

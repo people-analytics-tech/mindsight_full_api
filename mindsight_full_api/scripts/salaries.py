@@ -114,13 +114,13 @@ class Salary(ApiEndpoint):
         salary: float,
         person_id: int,
         salary_currency: str,
+        raise_type_id: int,
         raise_type_old: Literal[
             "initial",
             "raise",
             "mandatory",
             "others",
-        ],
-        raise_type_id: int,
+        ]=None,
     ):
         """
         Create new salary
@@ -153,13 +153,13 @@ class Salary(ApiEndpoint):
         salary: float,
         person_id: int,
         salary_currency: str,
+        raise_type_id: int,
         raise_type_old: Literal[
             "initial",
             "raise",
             "mandatory",
             "others",
-        ],
-        raise_type_id: int,
+        ]=  None,
         created__gt: datetime = None,
         created__lt: datetime = None,
         modified__gt: datetime = None,
@@ -209,13 +209,13 @@ class Salary(ApiEndpoint):
         salary: float,
         person_id: int,
         salary_currency: str,
+        raise_type_id: int,
         raise_type_old: Literal[
             "initial",
             "raise",
             "mandatory",
             "others",
-        ],
-        raise_type_id: int,
+        ]=  None,
         created__gt: datetime = None,
         created__lt: datetime = None,
         modified__gt: datetime = None,
