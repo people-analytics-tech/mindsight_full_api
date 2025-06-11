@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "mindsight-full-api"
-version = "0.1.6"
+version = "0.1.7"
 description = "Mindsight Full API to create, update and delete records"
 authors = ["stone_people_analytics <systems-techpeople@stone.com.br>"]
 maintainers = [
     "diogo56 <diogo.amorim2001@gmail.com>",
     "guilherme_lsilva <manager.guilherme.silva@gmail.com>",
     "root-who <joaopaulo_gonzaga@outlook.com>",
+    "rapha-pereira <raphaelpgomes1@gmail.com>",
 ]
 readme = "README.md"
 packages = [{include = "mindsight_full_api"}]
