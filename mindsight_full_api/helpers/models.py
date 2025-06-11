@@ -4,6 +4,7 @@ import requests
 
 from mindsight_full_api.helpers.base_requests import BaseRequests
 from mindsight_full_api.settings import PAGE_SIZE, TIMEOUT
+from typing import Optional
 
 
 class ApiEndpoint:
@@ -37,9 +38,9 @@ class ApiPaginationResponse:
     def __init__(
         self,
         count: int,
-        previous: str = None,
-        results: list = None,
-        headers: dict = None,
+        previous: Optional[str] = None,
+        results: Optional[list] = None,
+        headers: Optional[dict] = None,
         **kwargs,
     ) -> None:
         self.count = count

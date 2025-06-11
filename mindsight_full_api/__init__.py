@@ -20,6 +20,7 @@ from mindsight_full_api.scripts import (
     Trainings,
     User,
     VaraibleSalary,
+    AccessRules
 )
 
 __doc__ = """

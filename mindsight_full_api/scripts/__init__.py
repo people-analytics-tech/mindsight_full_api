@@ -18,3 +18,4 @@ from mindsight_full_api.scripts.shares_value import SharesValue
 from mindsight_full_api.scripts.trainings import Trainings
 from mindsight_full_api.scripts.users import User
 from mindsight_full_api.scripts.variable_salaries import VaraibleSalary
+from mindsight_full_api.scripts.access_rules import AccessRules
