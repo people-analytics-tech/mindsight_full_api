@@ -5,6 +5,7 @@ from mindsight_full_api.scripts.bonus import Bonus
 from mindsight_full_api.scripts.cost_center import CostCenters
 from mindsight_full_api.scripts.extra_hours import ExtraHours
 from mindsight_full_api.scripts.people import People
+from mindsight_full_api.scripts.positions import Positions
 from mindsight_full_api.scripts.performance_evaluations import PerformanceEvaluations
 from mindsight_full_api.scripts.performance_evaluation_round import PerformanceEvaluationRounds
 from mindsight_full_api.scripts.performance_indicators import PerformanceIndicators

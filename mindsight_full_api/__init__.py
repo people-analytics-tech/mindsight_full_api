@@ -7,6 +7,7 @@ from mindsight_full_api.scripts import (
     CostCenters,
     ExtraHours,
     People,
+    Positions,
     PerformanceEvaluations,
     PerformanceEvaluationRounds,
     PerformanceIndicators,
